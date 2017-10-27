@@ -1,0 +1,10 @@
+#!/bin/bash
+source venv/bin/activate
+timestamp=/tmp/.infinido.$$
+touch -t 197001010000 $timestamp
+while sleep 2; do
+[ "$(find $files -newer $timestamp | grep -v '/\.')" != "" ] || continue
+    touch -m $timestamp
+    clear
+    $(dirname $0)/pytest
+done
