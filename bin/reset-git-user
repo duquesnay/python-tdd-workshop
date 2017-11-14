@@ -1,0 +1,10 @@
+#!/bin/bash
+user=$0
+
+git remote set-url origin https://github.com/TestingSummitSG/python-tdd-workshop.git
+git branch --set-upstream-to=origin/master master
+
+git config user.name testingsummit-${user}
+git config user.email testingsummit1+zone${user}@gmail.com
+
+pull
