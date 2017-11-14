@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# other unknown stuff
+ex50/
+assets/ 
+report.html
+
