@@ -1,5 +1,4 @@
-argparse==1.2.1
+argparse==1.4.0
 py==1.4.34
-pytest==3.2.2
-wsgiref==0.1.2
-yapf==0.19.0
+pytest==3.2.4
+yapf==0.20.0
