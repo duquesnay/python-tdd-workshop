@@ -1,4 +1,4 @@
 #!/bin/bash
-virtuenv -p /usr/bin/python3.4 venv
+virtualenv -p /usr/bin/python3.4 venv
 source venv/bin/activate
 pip install -r requirements.txt
