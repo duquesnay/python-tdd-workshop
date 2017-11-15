@@ -6,5 +6,5 @@ while sleep 2; do
 [ "$(find $files -newer $timestamp | grep -v '/\.')" != "" ] || continue
     touch -m $timestamp
     clear
-    $(dirname $0)/pytest
+    $(dirname $0)/testme
 done
