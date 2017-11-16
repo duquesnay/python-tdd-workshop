@@ -23,6 +23,10 @@ def test_return_HKD_when_HkDollar():
     assert extract_currency('HK$') == 'HKD'
 
 
+def test_return_VND_when_Dong():
+    assert extract_currency('₫') == 'VND'
+
+
 def test_should_extract_SGD_currency_from_number():
     assert extract_currency('SGD1234.45') == 'SGD'
 
@@ -56,7 +60,8 @@ def test_should_extract_number_with_currency_prefix_and_space():
 CURRENCY_DICT={
             '€': 'EUR',
             'HK$': 'HKD',
-            '$': 'USD'
+            '$': 'USD',
+            '₫': 'VND'
             }
 
 
