@@ -3,4 +3,4 @@ exercise=$1
 echo switching to exercise $exercise
 exercise="$@"
 git commmit -a -m "auto-commit"
-git checkout exercise-$exercise
+git checkout ex_$exercise
