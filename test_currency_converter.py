@@ -34,6 +34,14 @@ def test_should_extract_EUR_currency_from_number():
     skip()
     assert extract_currency('€1234.45') == 'EUR'
 
+def test_should_extract_SGD_currency_from_number():
+    skip()
+    assert extract_currency('SGD1234.45') == 'SGD'
+
+def test_should_extract_EUR_currency_from_number():
+    skip()
+    assert extract_currency('€1234.45') == 'EUR'
+
 
 # ---- the code ---- #
 def extract_currency(input):
