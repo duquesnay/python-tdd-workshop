@@ -1,30 +1,7 @@
 from pytest import skip
-import re
-
-# ---- the code ---- #
-
-CURRENCY_DICT={
-            '€': 'EUR',
-            'HK$': 'HKD',
-            '$': 'USD',
-            '₫': 'VND'
-            }
+from currency_converter import extract_currency, extract_number
 
 
-def extract_currency(input):
-    prefix = extract_prefix(input)
-    return CURRENCY_DICT.get(prefix, prefix)
-
-
-def extract_prefix(input):
-    return input.rstrip('1234567890,. ')
-    
-    
-def extract_number(input):
-    return re.search(r'(\d|\.|,)+', input).group(0)
-    
-
-# ---- the tests ---- #
 def test_return_something():
     assert extract_currency('SGD') is not None
 
