@@ -1,6 +1,28 @@
 from pytest import skip
 import re
 
+# ---- the code ---- #
+
+CURRENCY_DICT={
+            '€': 'EUR',
+            'HK$': 'HKD',
+            '$': 'USD',
+            '₫': 'VND'
+            }
+
+
+def extract_currency(input):
+    prefix = extract_prefix(input)
+    return CURRENCY_DICT.get(prefix, prefix)
+
+
+def extract_prefix(input):
+    return input.rstrip('1234567890,. ')
+    
+    
+def extract_number(input):
+    return re.search(r'(\d|\.|,)+', input).group(0)
+    
 
 # ---- the tests ---- #
 def test_return_something():
@@ -55,25 +77,3 @@ def test_should_extract_number_with_currency_prefix():
 def test_should_extract_number_with_currency_prefix_and_space():
     assert extract_number('SGD 123.45') == '123.45'
     assert extract_number('SGD 2,200.00') == '2,200.00'
-
-
-CURRENCY_DICT={
-            '€': 'EUR',
-            'HK$': 'HKD',
-            '$': 'USD',
-            '₫': 'VND'
-            }
-
-
-# ---- the code ---- #
-def extract_currency(input):
-    prefix = extract_prefix(input)
-    return CURRENCY_DICT.get(prefix, prefix)
-
-
-def extract_prefix(input):
-    return input.rstrip('1234567890,. ')
-    
-    
-def extract_number(input):
-    return re.search(r'(\d|\.|,)+', input).group(0)
