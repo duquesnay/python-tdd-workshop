@@ -5,3 +5,5 @@ Included
 - unit tests (can have a beat of BDD cleanup/restyled)
 - couple of binaries to set up a new environment (creating virtual_env, running pip, etc)
 - minimalist requirements
+
+bug in zapier, dvnd nottranslated, look into python 2.7 n unicode maybe
