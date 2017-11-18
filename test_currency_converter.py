@@ -2,9 +2,14 @@ from pytest import skip
 from currency_converter import extract_currency, extract_number
 
 
+
 def test_return_something():
     assert extract_currency('SGD') is not None
 
+
+def test_should_return_None_currency_about_None():
+    assert extract_currency(None) is None
+    
 
 def test_return_SGD_when_SGD():
     assert extract_currency('SGD') == 'SGD'
@@ -34,6 +39,10 @@ def test_should_extract_EUR_currency_from_number():
     assert extract_currency('€1234.45') == 'EUR'
 
 
+def test_extract_VND_currency_from_number():
+    assert extract_currency('₫32,000') == 'VND'
+    
+
 def test_should_extract_SGD_currency_with_space_from_number():
     assert extract_currency('SGD 1234.45') == 'SGD'
  
@@ -54,3 +63,7 @@ def test_should_extract_number_with_currency_prefix():
 def test_should_extract_number_with_currency_prefix_and_space():
     assert extract_number('SGD 123.45') == '123.45'
     assert extract_number('SGD 2,200.00') == '2,200.00'
+    
+
+def test_should_return_None_number_on_None_input():
+    assert extract_number(None) is None
